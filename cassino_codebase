@@ -1,0 +1,55 @@
+import random
+money = 100
+
+#Write your game of chance functions here
+def flipping_a_coin(bet,bet_amount):
+  if random.randint(1,11) >= 5 and (str(bet).islower() == "heads"):
+    x = bet_amount*0.5
+    return f"You won: {bet_amount*0.5}"
+  if random.randint(1,11) < 5 and (str(bet).islower() == "tails"):
+    x = bet_amount*0.5
+    return f"You won: {bet_amount*0.5}"
+  else:
+    x = (bet_amount*0.6)*-1
+    return f"You lose: {(bet_amount*0.6)*-1}"
+
+def cho_han(bet,bet_amount):
+  dice_1 = random.randint(1,11)
+  dice_2 = random.randint(1,11)
+  
+  if (dice_1+dice_2)%2==0 and (str(bet).islower() == "even"):
+    return f"You won: {bet_amount*0.5}"
+  elif (dice_1+dice_2)%2==1 and (str(bet).islower() == "odd"):
+    return f"You won: {bet_amount*0.5}"
+  else:
+    return f"You lose: {(bet_amount*0.6)*-1}"
+
+def card_pick(bet_amount1,bet_amount2):
+  pick_1 = random.randint(1,14)
+  pick_2 = random.randint(1,14)
+  
+  if pick_1>pick_2:
+    return f"The First Pick won with a {pick_1}, the winner takes {(bet_amount1+bet_amount2)}"
+  elif pick_1<pick_2:
+    return f"The Second Pick won with a {pick_2}, the winner takes {(bet_amount1+bet_amount2)}"
+  else:
+    return f"There was a Tie! The pick one received {str(pick_1)} and pick two received {str(pick_2)}. The Bet Amounts returned."
+  
+def roulette(bet, bet_amount):
+  roulette_result = random.randint(0,37)
+  if (str(bet).islower() == "even") and (roulette_result%2==0):
+    return f"You won. Your prize is {bet_amount}"
+  elif (str(bet).islower() == "odd") and (roulette_result%2==1):
+    return f"You won. Your prize is {bet_amount}"
+  elif (str(bet).isnumeric()) and (roulette_result==bet):
+    return f"You won. Your prize is {bet_amount*36}"
+  elif ((str(bet).islower() == "even") or (bet == "Odd")) and (roulette_result == 0):
+    return "You lose."
+  else:
+    return "You lose."
+    
+#Call your game of chance functions here
+print(flipping_a_coin("Heads",10))
+print(cho_han("Odd",10))
+print(card_pick(10,10))
+print(roulette("Even",100))
