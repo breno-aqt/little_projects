@@ -1,7 +1,7 @@
 import random
 money = 100
 
-#Write your game of chance functions here
+#Functions here
 def flipping_a_coin(bet,bet_amount):
   if random.randint(1,11) >= 5 and (str(bet).islower() == "heads"):
     x = bet_amount*0.5
