@@ -48,7 +48,7 @@ def roulette(bet, bet_amount):
   else:
     return "You lose."
     
-#Call your game of chance functions here
+#Call your game functions here
 print(flipping_a_coin("Heads",10))
 print(cho_han("Odd",10))
 print(card_pick(10,10))
